@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/taskText"
+        android:layout_width="314dp"
+        android:layout_height="317dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="83dp"
+        android:text="Задача появится тут"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/answerInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/answerInput"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="42dp"
+        android:hint="Введите ответ"
+        app:layout_constraintBottom_toTopOf="@+id/checkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskText" />
+
+    <Button
+        android:id="@+id/checkButton"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="76dp"
+        android:text="Проверить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
