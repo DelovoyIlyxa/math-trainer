@@ -1,12 +1,10 @@
 package com.example.matkach
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,30 +14,17 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     fun updateLivesView(livesText: TextView, lives: Int) {
-        val hearts = "❤️".repeat(lives)
-        livesText.text = hearts
-    }
-
-    fun loadJSON(context: Context): String {
-        val inputStream = context.assets.open("tasks.json")
-        return inputStream.bufferedReader().use { it.readText() }
+        livesText.text = "❤️".repeat(lives)
     }
 
     @SuppressLint("DefaultLocale")
     fun formatNumber(value: Double): String {
-        return if (value % 1.0 == 0.0) {
-            value.toInt().toString()
-        } else {
-            String.format("%.2f", value)
-        }
+        return if (value % 1.0 == 0.0) value.toInt().toString() else String.format("%.2f", value)
     }
 
-    fun getRandomDifficulty(): String {
-        var num = Random.nextInt(2)
-        if (num == 0)
-            return "easy"
-        else
-            return "hard"
+    fun getRandomDifficulty(): DifficultyLevel {
+        val num = Random.nextInt(2)
+        return if (num == 0) DifficultyLevel.EASY else DifficultyLevel.HARD
     }
 
     @SuppressLint("SetTextI18n")
@@ -73,9 +58,9 @@ class MainActivity : AppCompatActivity() {
         // Tasks generator
         val repository = TaskRepository(this)
         val tasks = repository.loadTasks()
-        var level = difficulty
+        var level = DifficultyLevel.fromString(difficulty)
 
-        if (difficulty == "combi") {
+        if (difficulty == DifficultyLevel.COMBI.value) {
             level = getRandomDifficulty()
         }
 
@@ -87,6 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         val taskText = findViewById<TextView>(R.id.taskText)
         taskText.text = currentTask.text
+        // TODO: Сообщение пользователю: если результат дробь - округлить до сотых
 
         backButton.setOnClickListener {
             finish()
@@ -95,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
 
             if (!isAnswered) {
-                // проверка
+                // Check input
                 val userAnswer = input.text.toString().toDoubleOrNull()
 
                 if (userAnswer != null) {
@@ -113,25 +99,26 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     if (lives == 0) {
-                        taskText.text =
-                            "Игра окончена. Правильных ответов: ${correct} из ${correct + missing}"
+                        taskText.text = taskText.text.toString() +
+                            "\n Игра окончена. Правильных ответов: ${correct} из ${correct + missing}"
                         button.isEnabled = false
-                        input.isEnabled = false
                     }
 
+                    input.isEnabled = false
                     button.text = "Дальше"
                     isAnswered = true
                 }
 
             } else {
-                // следующая задача
-                if (difficulty == "combi") {
+                // Next Task
+                if (difficulty == DifficultyLevel.COMBI.value) {
                     level = getRandomDifficulty()
                 }
                 currentTask = generator.generate(level)
 
                 taskText.text = currentTask.text
                 input.text.clear()
+                input.isEnabled = true
 
                 button.text = "Проверить"
                 isAnswered = false

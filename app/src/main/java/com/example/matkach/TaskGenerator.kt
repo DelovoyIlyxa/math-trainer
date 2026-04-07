@@ -13,19 +13,25 @@ data class GeneratedTask(
 class TaskGenerator(private val tasks: List<Task>) {
 
     @SuppressLint("DefaultLocale")
-    fun generate(level: String): GeneratedTask {
-        val filtered = tasks.filter { it.level == level }
+    fun generate(level: DifficultyLevel): GeneratedTask {
+        val filtered = tasks.filter { it.level == level.value }
         val task = filtered.random()
 
         val values = mutableMapOf<String, Double>()
 
         // генерируем переменные
         for ((key, range) in task.variables) {
-            val value = if (task.level == "easy") {
-                Random.nextInt(range.min.toInt(), range.max.toInt() + 1).toDouble()
-            } else {
-                Random.nextDouble(range.min, range.max)
-            }
+//            // OLD difficulty
+//            val value = if (task.level == DifficultyLevel.EASY.value) {
+//                Random.nextInt(range.min.toInt(), range.max.toInt() + 1).toDouble()
+//            } else {
+//                Random.nextDouble(range.min, range.max)
+//            }
+            // NEW difficulty
+            val value = Random.nextInt(
+                range.min.toInt(),
+                range.max.toInt() + 1
+            ).toDouble()
             values[key] = value
         }
 
@@ -57,11 +63,9 @@ class TaskGenerator(private val tasks: List<Task>) {
 
             return GeneratedTask(text, result)
         } catch (e: Exception) {
-            Log.e("TASK", "Ошибка в выражении: $expression")
+            Log.e("TASK", "Ошибка в выражении: $text")
             return GeneratedTask("Введите 0.", 0.0)
         }
-
-
 
     }
 }

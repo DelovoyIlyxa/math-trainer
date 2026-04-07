@@ -238,7 +238,7 @@
             "id": "easy_word_4",
             "level": "easy",
             "type": "word_problem",
-            "template": "У тебя {a} евро, ты потратил {b}. Сколько осталось?",
+            "template": "У тебя {a} рублей, ты потратил {b}. Сколько осталось?",
             "variables": {
                 "a": {
                     "min": 20,
@@ -256,7 +256,7 @@
             "id": "easy_word_5",
             "level": "easy",
             "type": "word_problem",
-            "template": "Один билет стоит {a} евро. Сколько стоят {b} билетов?",
+            "template": "Один билет стоит {a} рублей. Сколько стоят {b} билетов?",
             "variables": {
                 "a": {
                     "min": 5,
@@ -368,15 +368,15 @@
             "variables": {
                 "a": {
                     "min": 1,
-                    "max": 20
+                    "max": 5
                 },
                 "b": {
                     "min": 1,
-                    "max": 100
+                    "max": 20
                 },
                 "c": {
-                    "min": 50,
-                    "max": 500
+                    "min": 2,
+                    "max": 50
                 }
             },
             "formula": "(c - b) / a",
@@ -390,15 +390,15 @@
             "variables": {
                 "a": {
                     "min": 1,
-                    "max": 20
+                    "max": 5
                 },
                 "b": {
                     "min": 1,
-                    "max": 100
+                    "max": 20
                 },
                 "c": {
-                    "min": 10,
-                    "max": 500
+                    "min": 2,
+                    "max": 50
                 }
             },
             "formula": "(c + b) / a",
@@ -412,7 +412,7 @@
             "variables": {
                 "a": {
                     "min": 2,
-                    "max": 20
+                    "max": 10
                 },
                 "b": {
                     "min": 2,
@@ -433,8 +433,8 @@
                     "max": 20
                 },
                 "b": {
-                    "min": 20,
-                    "max": 500
+                    "min": 2,
+                    "max": 50
                 }
             },
             "formula": "b / a",
@@ -451,8 +451,8 @@
                     "max": 100
                 },
                 "b": {
-                    "min": 50,
-                    "max": 500
+                    "min": 10,
+                    "max": 125
                 }
             },
             "formula": "b - a",
@@ -462,11 +462,11 @@
             "id": "hard_prog_1",
             "level": "hard",
             "type": "progression",
-            "template": "Арифметическая прогрессия: a1={a}, d={d}. Найди a{n}",
+            "template": "Арифметическая прогрессия: a1={a}, d={d}. Найди a{n}.\nФормула: a1 + (n - 1) * d",
             "variables": {
                 "a": {
                     "min": 1,
-                    "max": 50
+                    "max": 20
                 },
                 "d": {
                     "min": 1,
@@ -474,7 +474,7 @@
                 },
                 "n": {
                     "min": 2,
-                    "max": 20
+                    "max": 10
                 }
             },
             "formula": "a + (n - 1) * d",
@@ -484,11 +484,11 @@
             "id": "hard_prog_2",
             "level": "hard",
             "type": "progression",
-            "template": "Найди сумму первых {n} чисел, если a1={a}, d={d}",
+            "template": "Найди сумму первых {n} чисел, если a1={a}, d={d}.\nФормула: n / 2 * (2 * a1 + (n - 1) * d)",
             "variables": {
                 "a": {
                     "min": 1,
-                    "max": 50
+                    "max": 10
                 },
                 "d": {
                     "min": 1,
@@ -496,73 +496,29 @@
                 },
                 "n": {
                     "min": 2,
-                    "max": 20
+                    "max": 7
                 }
             },
             "formula": "n / 2 * (2 * a + (n - 1) * d)",
             "round": 2
         },
         {
-            "id": "hard_prog_3",
-            "level": "hard",
-            "type": "progression",
-            "template": "Геометрическая прогрессия: a1={a}, q={q}. Найди a{n}",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 10
-                },
-                "q": {
-                    "min": 2,
-                    "max": 5
-                },
-                "n": {
-                    "min": 2,
-                    "max": 10
-                }
-            },
-            "formula": "a * q ** (n - 1)",
-            "round": 2
-        },
-        {
-            "id": "hard_prog_4",
-            "level": "hard",
-            "type": "progression",
-            "template": "Найди сумму {n} членов геометрической прогрессии (a1={a}, q={q})",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 10
-                },
-                "q": {
-                    "min": 2,
-                    "max": 5
-                },
-                "n": {
-                    "min": 2,
-                    "max": 8
-                }
-            },
-            "formula": "a * (q ** n - 1) / (q - 1)",
-            "round": 2
-        },
-        {
             "id": "hard_prog_5",
             "level": "hard",
             "type": "progression",
-            "template": "Найди разность между a{n} и a1 (a1={a}, d={d})",
+            "template": "Найди разность между a{n} и a1 (a1={a}, d={d}).\nФормула: a1 + (n - 1) * d",
             "variables": {
                 "a": {
                     "min": 1,
-                    "max": 50
+                    "max": 15
                 },
                 "d": {
                     "min": 1,
-                    "max": 20
+                    "max": 10
                 },
                 "n": {
                     "min": 2,
-                    "max": 20
+                    "max": 7
                 }
             },
             "formula": "(a + (n - 1) * d) - a",
@@ -572,11 +528,11 @@
             "id": "hard_formula_1",
             "level": "hard",
             "type": "formula",
-            "template": "Найди скорость: s={s} км, t={t} ч",
+            "template": "Найди скорость: s={s} км, t={t} ч.\nФормула: S = V * t",
             "variables": {
                 "s": {
                     "min": 10,
-                    "max": 1000
+                    "max": 150
                 },
                 "t": {
                     "min": 1,
@@ -590,11 +546,11 @@
             "id": "hard_formula_2",
             "level": "hard",
             "type": "formula",
-            "template": "Найди путь: v={v} км/ч, t={t} ч",
+            "template": "Найди путь: v={v} км/ч, t={t} ч.\nФормула: S = V * t",
             "variables": {
                 "v": {
                     "min": 10,
-                    "max": 200
+                    "max": 100
                 },
                 "t": {
                     "min": 1,
@@ -608,7 +564,7 @@
             "id": "hard_formula_3",
             "level": "hard",
             "type": "formula",
-            "template": "Найди силу: m={m} кг, a={a} м/с²",
+            "template": "Найди силу: m={m} кг, a={a} м/с².\nФормула: F = m * a",
             "variables": {
                 "m": {
                     "min": 1,
@@ -626,15 +582,15 @@
             "id": "hard_formula_4",
             "level": "hard",
             "type": "formula",
-            "template": "Найди время: s={s}, v={v}",
+            "template": "Найди время: s={s}, v={v}.\nФормула: S = V * t",
             "variables": {
                 "s": {
                     "min": 10,
-                    "max": 1000
+                    "max": 250
                 },
                 "v": {
                     "min": 1,
-                    "max": 100
+                    "max": 50
                 }
             },
             "formula": "s / v",
@@ -644,7 +600,7 @@
             "id": "hard_formula_5",
             "level": "hard",
             "type": "formula",
-            "template": "Найди ускорение: F={f}, m={m}",
+            "template": "Найди ускорение: F={f}, m={m}.\nФормула: F = m * a",
             "variables": {
                 "f": {
                     "min": 10,
@@ -665,16 +621,16 @@
             "template": "Цена {a} увеличилась на {p}%, затем уменьшилась на {q}%. Итог?",
             "variables": {
                 "a": {
-                    "min": 50,
-                    "max": 500
+                    "min": 10,
+                    "max": 100
                 },
                 "p": {
                     "min": 5,
-                    "max": 50
+                    "max": 25
                 },
                 "q": {
                     "min": 5,
-                    "max": 50
+                    "max": 25
                 }
             },
             "formula": "a * (1 + p / 100) * (1 - q / 100)",
@@ -687,16 +643,16 @@
             "template": "Число {a} увеличили на {p}%, затем ещё на {q}%. Результат?",
             "variables": {
                 "a": {
-                    "min": 50,
-                    "max": 500
+                    "min": 10,
+                    "max": 100
                 },
                 "p": {
                     "min": 5,
-                    "max": 50
+                    "max": 25
                 },
                 "q": {
                     "min": 5,
-                    "max": 50
+                    "max": 25
                 }
             },
             "formula": "a * (1 + p / 100) * (1 + q / 100)",
@@ -710,7 +666,7 @@
             "variables": {
                 "b": {
                     "min": 50,
-                    "max": 500
+                    "max": 100
                 },
                 "p": {
                     "min": 5,
@@ -728,15 +684,15 @@
             "variables": {
                 "a": {
                     "min": 50,
-                    "max": 500
+                    "max": 100
                 },
                 "p": {
                     "min": 5,
-                    "max": 50
+                    "max": 25
                 },
                 "q": {
                     "min": 5,
-                    "max": 50
+                    "max": 25
                 }
             },
             "formula": "a * (1 - p / 100) * (1 + q / 100)",
@@ -749,12 +705,12 @@
             "template": "Сколько процентов составляет разница между {a} и {b} от {a}?",
             "variables": {
                 "a": {
-                    "min": 100,
-                    "max": 500
+                    "min": 50,
+                    "max": 100
                 },
                 "b": {
-                    "min": 50,
-                    "max": 400
+                    "min": 10,
+                    "max": 50
                 }
             },
             "formula": "(a - b) * 100 / a",
