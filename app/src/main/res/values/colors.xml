@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bg_color">#F0F2F5</color> <!-- Светлый фон для неоморфизма -->
+    <color name="shadow_light">#FFFFFF</color> <!-- Белый блик -->
+    <color name="shadow_dark">#D9DDE6</color> <!-- Тень -->
+    <color name="primary_purple">#6A5ACD</color> <!-- Твой фиолетовый цвет -->
+    <color name="input_bg">#E4E6E9</color> <!-- Цвет фона для поля ввода (вдавленный) -->
 </resources>

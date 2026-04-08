@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
-    android:id="@+id/main">
+    android:id="@+id/main"
+    android:background="@color/bg_color"> <!-- 1. Фон экрана -->
 
     <TextView
         android:id="@+id/title"
@@ -15,33 +16,50 @@
         android:textStyle="bold"
         android:layout_marginBottom="32dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="#333333"/> <!-- Темный текст для заголовка -->
 
     <Button
         android:id="@+id/btnEasy"
         android:text="Лёгкий"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_neu_button"
+        android:stateListAnimator="@null"
+        android:textColor="#FFFFFF"
+        android:padding="16dp"/>
 
     <Button
         android:id="@+id/btnHard"
         android:text="Сложный"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_neu_button"
+        android:stateListAnimator="@null"
+        android:textColor="#FFFFFF"
+        android:padding="16dp"/>
 
     <Button
         android:id="@+id/btnCombi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Комбинированный" />
+        android:text="Комбинированный"
+        android:background="@drawable/bg_neu_button"
+        android:stateListAnimator="@null"
+        android:textColor="#FFFFFF"
+        android:padding="16dp"/>
 
     <Button
         android:id="@+id/btnAbout"
         android:text="Об авторах"
         android:layout_marginTop="32dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_neu_button"
+        android:stateListAnimator="@null"
+        android:textColor="#FFFFFF"
+        android:padding="16dp"/>
 
 </LinearLayout>

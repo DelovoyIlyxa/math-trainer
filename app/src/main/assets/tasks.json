@@ -4,7 +4,7 @@
             "id": "easy_arith_1",
             "level": "easy",
             "type": "arithmetic",
-            "template": "{a} + {b}",
+            "template": "Вычисли:\n{a} + {b}",
             "variables": {
                 "a": {
                     "min": 1,
@@ -22,7 +22,7 @@
             "id": "easy_arith_2",
             "level": "easy",
             "type": "arithmetic",
-            "template": "{a} - {b}",
+            "template": "Вычисли:\n{a} - {b}",
             "variables": {
                 "a": {
                     "min": 20,
@@ -40,7 +40,7 @@
             "id": "easy_arith_3",
             "level": "easy",
             "type": "arithmetic",
-            "template": "{a} * {b}",
+            "template": "Вычисли:\n{a} * {b}",
             "variables": {
                 "a": {
                     "min": 1,
@@ -58,7 +58,7 @@
             "id": "easy_arith_4",
             "level": "easy",
             "type": "arithmetic",
-            "template": "{a} / {b}",
+            "template": "Вычисли:\n{a} / {b}\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 10,
@@ -76,7 +76,7 @@
             "id": "easy_arith_5",
             "level": "easy",
             "type": "arithmetic",
-            "template": "{a} + {b} * 2",
+            "template": "Вычисли:\n{a} + {b} * 2",
             "variables": {
                 "a": {
                     "min": 1,
@@ -94,7 +94,7 @@
             "id": "easy_percent_1",
             "level": "easy",
             "type": "percentage",
-            "template": "Найди {p}% от числа {a}",
+            "template": "Вычисли:\n{p}% от числа {a}\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 10,
@@ -112,7 +112,7 @@
             "id": "easy_percent_2",
             "level": "easy",
             "type": "percentage",
-            "template": "Увеличь {a} на {p}%",
+            "template": "Увеличь {a} на {p}%\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 10,
@@ -130,7 +130,7 @@
             "id": "easy_percent_3",
             "level": "easy",
             "type": "percentage",
-            "template": "Уменьши {a} на {p}%",
+            "template": "Уменьши {a} на {p}%\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 20,
@@ -148,7 +148,7 @@
             "id": "easy_percent_4",
             "level": "easy",
             "type": "percentage",
-            "template": "{a} — это {p}% от какого числа?",
+            "template": "{a} — это {p}% от какого числа?\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 5,
@@ -166,7 +166,7 @@
             "id": "easy_percent_5",
             "level": "easy",
             "type": "percentage",
-            "template": "Какой процент составляет {a} от {b}?",
+            "template": "Какой процент составляет {a} от {b}?\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 1,
@@ -209,7 +209,7 @@
                     "max": 50
                 },
                 "b": {
-                    "min": 1,
+                    "min": 2,
                     "max": 5
                 }
             },
@@ -220,7 +220,7 @@
             "id": "easy_word_3",
             "level": "easy",
             "type": "word_problem",
-            "template": "Ты прошёл {a} км утром и {b} км вечером. Сколько всего?",
+            "template": "Ты прошёл {a} км утром и {b} км вечером.\nСколько всего?",
             "variables": {
                 "a": {
                     "min": 1,
@@ -238,7 +238,7 @@
             "id": "easy_word_4",
             "level": "easy",
             "type": "word_problem",
-            "template": "У тебя {a} рублей, ты потратил {b}. Сколько осталось?",
+            "template": "У тебя {a} рублей, ты потратил {b}.\nСколько осталось?",
             "variables": {
                 "a": {
                     "min": 20,
@@ -263,7 +263,7 @@
                     "max": 30
                 },
                 "b": {
-                    "min": 1,
+                    "min": 2,
                     "max": 10
                 }
             },
@@ -274,7 +274,7 @@
             "id": "easy_compare_1",
             "level": "easy",
             "type": "comparison",
-            "template": "Найди разницу между {a} и {b}",
+            "template": "Найди разницу между\n{a} и {b}",
             "variables": {
                 "a": {
                     "min": 10,
@@ -346,7 +346,7 @@
             "id": "easy_compare_5",
             "level": "easy",
             "type": "comparison",
-            "template": "Разность чисел {a} и {b}",
+            "template": "Какова разность чисел {a} и {b}?",
             "variables": {
                 "a": {
                     "min": 10,
@@ -364,7 +364,7 @@
             "id": "hard_eq_1",
             "level": "hard",
             "type": "equation",
-            "template": "Реши: {a}x + {b} = {c}",
+            "template": "Найди x:\n{a}x + {b} = {c}\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 1,
@@ -386,7 +386,7 @@
             "id": "hard_eq_2",
             "level": "hard",
             "type": "equation",
-            "template": "Реши: {a}x - {b} = {c}",
+            "template": "Найди x:\n{a}x - {b} = {c}\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 1,
@@ -408,7 +408,7 @@
             "id": "hard_eq_3",
             "level": "hard",
             "type": "equation",
-            "template": "Найди x: x / {a} = {b}",
+            "template": "Найди x:\nx / {a} = {b}",
             "variables": {
                 "a": {
                     "min": 2,
@@ -426,7 +426,7 @@
             "id": "hard_eq_4",
             "level": "hard",
             "type": "equation",
-            "template": "Найди x: x * {a} = {b}",
+            "template": "Найди x:\nx * {a} = {b}\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 2,
@@ -444,7 +444,7 @@
             "id": "hard_eq_5",
             "level": "hard",
             "type": "equation",
-            "template": "Реши: ({a} + x) = {b}",
+            "template": "Найди x:\n({a} + x) = {b}",
             "variables": {
                 "a": {
                     "min": 1,
@@ -462,7 +462,7 @@
             "id": "hard_prog_1",
             "level": "hard",
             "type": "progression",
-            "template": "Арифметическая прогрессия: a1={a}, d={d}. Найди a{n}.\nФормула: a1 + (n - 1) * d",
+            "template": "Арифметическая прогрессия: a1={a}, d={d}.\nНайди a{n}.\nФормула: a1 + (n - 1) * d",
             "variables": {
                 "a": {
                     "min": 1,
@@ -484,7 +484,7 @@
             "id": "hard_prog_2",
             "level": "hard",
             "type": "progression",
-            "template": "Найди сумму первых {n} чисел, если a1={a}, d={d}.\nФормула: n / 2 * (2 * a1 + (n - 1) * d)",
+            "template": "Найди сумму первых {n} чисел, если:\na1={a}, d={d}.\nФормула: n / 2 * (2 * a1 + (n - 1) * d)",
             "variables": {
                 "a": {
                     "min": 1,
@@ -506,7 +506,7 @@
             "id": "hard_prog_5",
             "level": "hard",
             "type": "progression",
-            "template": "Найди разность между a{n} и a1 (a1={a}, d={d}).\nФормула: a1 + (n - 1) * d",
+            "template": "Найди разность между a{n} и a1\na1={a}, d={d}.\nФормула: a1 + (n - 1) * d",
             "variables": {
                 "a": {
                     "min": 1,
@@ -528,7 +528,7 @@
             "id": "hard_formula_1",
             "level": "hard",
             "type": "formula",
-            "template": "Найди скорость: s={s} км, t={t} ч.\nФормула: S = V * t",
+            "template": "Найди скорость (V), при:\nS={s} км, t={t} ч.\nФормула: S = V * t\nПриведи к виду 0.00",
             "variables": {
                 "s": {
                     "min": 10,
@@ -546,7 +546,7 @@
             "id": "hard_formula_2",
             "level": "hard",
             "type": "formula",
-            "template": "Найди путь: v={v} км/ч, t={t} ч.\nФормула: S = V * t",
+            "template": "Найди путь (S), при:\nV={v} км/ч, t={t} ч.\nФормула: S = V * t",
             "variables": {
                 "v": {
                     "min": 10,
@@ -564,7 +564,7 @@
             "id": "hard_formula_3",
             "level": "hard",
             "type": "formula",
-            "template": "Найди силу: m={m} кг, a={a} м/с².\nФормула: F = m * a",
+            "template": "Найди силу (F), при:\nm={m} кг, a={a} м/с².\nФормула: F = m * a\n",
             "variables": {
                 "m": {
                     "min": 1,
@@ -582,7 +582,7 @@
             "id": "hard_formula_4",
             "level": "hard",
             "type": "formula",
-            "template": "Найди время: s={s}, v={v}.\nФормула: S = V * t",
+            "template": "Найди время (t), при:\nS={s}, V={v}.\nФормула: S = V * t\nПриведи к виду 0.00",
             "variables": {
                 "s": {
                     "min": 10,
@@ -600,7 +600,7 @@
             "id": "hard_formula_5",
             "level": "hard",
             "type": "formula",
-            "template": "Найди ускорение: F={f}, m={m}.\nФормула: F = m * a",
+            "template": "Найди ускорение (a), при:\nF={f}, m={m}.\nФормула: F = m * a\nПриведи к виду 0.00",
             "variables": {
                 "f": {
                     "min": 10,
@@ -618,7 +618,7 @@
             "id": "hard_percent_1",
             "level": "hard",
             "type": "complex_percentage",
-            "template": "Цена {a} увеличилась на {p}%, затем уменьшилась на {q}%. Итог?",
+            "template": "Цена {a} увеличилась на {p}%, затем уменьшилась на {q}%.\nСколько в итоге?\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 10,
@@ -640,7 +640,7 @@
             "id": "hard_percent_2",
             "level": "hard",
             "type": "complex_percentage",
-            "template": "Число {a} увеличили на {p}%, затем ещё на {q}%. Результат?",
+            "template": "Число {a} увеличили на {p}%, затем ещё на {q}%.\nСколько в итоге?\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 10,
@@ -662,7 +662,7 @@
             "id": "hard_percent_3",
             "level": "hard",
             "type": "complex_percentage",
-            "template": "После скидки {p}% цена стала {b}. Найди исходную цену",
+            "template": "После скидки {p}% цена стала {b}.\nНайди исходную цену\nПриведи к виду 0.00",
             "variables": {
                 "b": {
                     "min": 50,
@@ -680,7 +680,7 @@
             "id": "hard_percent_4",
             "level": "hard",
             "type": "complex_percentage",
-            "template": "Цена {a} уменьшилась на {p}%, затем увеличилась на {q}%. Итог?",
+            "template": "Цена {a} уменьшилась на {p}%, затем увеличилась на {q}%.\nСколько в итоге?\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 50,
@@ -702,7 +702,7 @@
             "id": "hard_percent_5",
             "level": "hard",
             "type": "complex_percentage",
-            "template": "Сколько процентов составляет разница между {a} и {b} от {a}?",
+            "template": "Сколько процентов составляет разница между {a} и {b} от {a}?\nПриведи к виду 0.00",
             "variables": {
                 "a": {
                     "min": 50,

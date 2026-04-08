@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Вдавленная тень (инверсия) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/shadow_dark" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+    <item android:top="4dp" android:left="4dp" tools:ignore="StateListReachable">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/shadow_light" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+    <!-- Внутренняя часть поля (чуть темнее фона) -->
+    <item android:bottom="4dp" android:right="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E4E6E9" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+</selector>

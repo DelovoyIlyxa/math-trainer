@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Темная тень (справа снизу) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/shadow_dark" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+
+    <!-- Белая тень (слева сверху) - смещаем её вверх и влево -->
+    <item android:top="4dp" android:left="4dp" tools:ignore="StateListReachable">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/shadow_light" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+
+    <!-- Основная кнопка (поверх теней) -->
+    <item android:bottom="4dp" android:right="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/primary_purple" />
+            <corners android:radius="24dp" />
+            <!-- Градиент можно добавить сюда для красоты, но плоский цвет тоже ок -->
+        </shape>
+    </item>
+</selector>
