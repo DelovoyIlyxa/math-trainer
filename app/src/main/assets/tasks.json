@@ -1,720 +1,380 @@
 {
-    "tasks": [
-        {
-            "id": "easy_arith_1",
-            "level": "easy",
-            "type": "arithmetic",
-            "template": "Вычисли:\n{a} + {b}",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 100
-                }
-            },
-            "formula": "a + b",
-            "round": 2
-        },
-        {
-            "id": "easy_arith_2",
-            "level": "easy",
-            "type": "arithmetic",
-            "template": "Вычисли:\n{a} - {b}",
-            "variables": {
-                "a": {
-                    "min": 20,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 20
-                }
-            },
-            "formula": "a - b",
-            "round": 2
-        },
-        {
-            "id": "easy_arith_3",
-            "level": "easy",
-            "type": "arithmetic",
-            "template": "Вычисли:\n{a} * {b}",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 20
-                },
-                "b": {
-                    "min": 1,
-                    "max": 10
-                }
-            },
-            "formula": "a * b",
-            "round": 2
-        },
-        {
-            "id": "easy_arith_4",
-            "level": "easy",
-            "type": "arithmetic",
-            "template": "Вычисли:\n{a} / {b}\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 10,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 10
-                }
-            },
-            "formula": "a / b",
-            "round": 2
-        },
-        {
-            "id": "easy_arith_5",
-            "level": "easy",
-            "type": "arithmetic",
-            "template": "Вычисли:\n{a} + {b} * 2",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 50
-                },
-                "b": {
-                    "min": 1,
-                    "max": 25
-                }
-            },
-            "formula": "a + b * 2",
-            "round": 2
-        },
-        {
-            "id": "easy_percent_1",
-            "level": "easy",
-            "type": "percentage",
-            "template": "Вычисли:\n{p}% от числа {a}\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 10,
-                    "max": 100
-                },
-                "p": {
-                    "min": 1,
-                    "max": 50
-                }
-            },
-            "formula": "a * p / 100",
-            "round": 2
-        },
-        {
-            "id": "easy_percent_2",
-            "level": "easy",
-            "type": "percentage",
-            "template": "Увеличь {a} на {p}%\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 10,
-                    "max": 100
-                },
-                "p": {
-                    "min": 5,
-                    "max": 50
-                }
-            },
-            "formula": "a * (1 + p / 100)",
-            "round": 2
-        },
-        {
-            "id": "easy_percent_3",
-            "level": "easy",
-            "type": "percentage",
-            "template": "Уменьши {a} на {p}%\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 20,
-                    "max": 100
-                },
-                "p": {
-                    "min": 5,
-                    "max": 50
-                }
-            },
-            "formula": "a * (1 - p / 100)",
-            "round": 2
-        },
-        {
-            "id": "easy_percent_4",
-            "level": "easy",
-            "type": "percentage",
-            "template": "{a} — это {p}% от какого числа?\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 5,
-                    "max": 50
-                },
-                "p": {
-                    "min": 5,
-                    "max": 50
-                }
-            },
-            "formula": "a * 100 / p",
-            "round": 2
-        },
-        {
-            "id": "easy_percent_5",
-            "level": "easy",
-            "type": "percentage",
-            "template": "Какой процент составляет {a} от {b}?\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 50
-                },
-                "b": {
-                    "min": 10,
-                    "max": 100
-                }
-            },
-            "formula": "a * 100 / b",
-            "round": 2
-        },
-        {
-            "id": "easy_word_1",
-            "level": "easy",
-            "type": "word_problem",
-            "template": "У тебя было {a} яблок, ты съел {b}. Сколько осталось?",
-            "variables": {
-                "a": {
-                    "min": 10,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 20
-                }
-            },
-            "formula": "a - b",
-            "round": 2
-        },
-        {
-            "id": "easy_word_2",
-            "level": "easy",
-            "type": "word_problem",
-            "template": "Книга стоит {a} евро. Ты купил {b} книг. Сколько заплатил?",
-            "variables": {
-                "a": {
-                    "min": 5,
-                    "max": 50
-                },
-                "b": {
-                    "min": 2,
-                    "max": 5
-                }
-            },
-            "formula": "a * b",
-            "round": 2
-        },
-        {
-            "id": "easy_word_3",
-            "level": "easy",
-            "type": "word_problem",
-            "template": "Ты прошёл {a} км утром и {b} км вечером.\nСколько всего?",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 20
-                },
-                "b": {
-                    "min": 1,
-                    "max": 20
-                }
-            },
-            "formula": "a + b",
-            "round": 2
-        },
-        {
-            "id": "easy_word_4",
-            "level": "easy",
-            "type": "word_problem",
-            "template": "У тебя {a} рублей, ты потратил {b}.\nСколько осталось?",
-            "variables": {
-                "a": {
-                    "min": 20,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 30
-                }
-            },
-            "formula": "a - b",
-            "round": 2
-        },
-        {
-            "id": "easy_word_5",
-            "level": "easy",
-            "type": "word_problem",
-            "template": "Один билет стоит {a} рублей. Сколько стоят {b} билетов?",
-            "variables": {
-                "a": {
-                    "min": 5,
-                    "max": 30
-                },
-                "b": {
-                    "min": 2,
-                    "max": 10
-                }
-            },
-            "formula": "a * b",
-            "round": 2
-        },
-        {
-            "id": "easy_compare_1",
-            "level": "easy",
-            "type": "comparison",
-            "template": "Найди разницу между\n{a} и {b}",
-            "variables": {
-                "a": {
-                    "min": 10,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 50
-                }
-            },
-            "formula": "a - b",
-            "round": 2
-        },
-        {
-            "id": "easy_compare_2",
-            "level": "easy",
-            "type": "comparison",
-            "template": "На сколько число {a} больше {b}?",
-            "variables": {
-                "a": {
-                    "min": 20,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 50
-                }
-            },
-            "formula": "a - b",
-            "round": 2
-        },
-        {
-            "id": "easy_compare_3",
-            "level": "easy",
-            "type": "comparison",
-            "template": "На сколько {b} меньше {a}?",
-            "variables": {
-                "a": {
-                    "min": 20,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 50
-                }
-            },
-            "formula": "a - b",
-            "round": 2
-        },
-        {
-            "id": "easy_compare_4",
-            "level": "easy",
-            "type": "comparison",
-            "template": "Сколько нужно добавить к {b}, чтобы получить {a}?",
-            "variables": {
-                "a": {
-                    "min": 20,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 50
-                }
-            },
-            "formula": "a - b",
-            "round": 2
-        },
-        {
-            "id": "easy_compare_5",
-            "level": "easy",
-            "type": "comparison",
-            "template": "Какова разность чисел {a} и {b}?",
-            "variables": {
-                "a": {
-                    "min": 10,
-                    "max": 100
-                },
-                "b": {
-                    "min": 1,
-                    "max": 50
-                }
-            },
-            "formula": "a - b",
-            "round": 2
-        },
-        {
-            "id": "hard_eq_1",
-            "level": "hard",
-            "type": "equation",
-            "template": "Найди x:\n{a}x + {b} = {c}\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 5
-                },
-                "b": {
-                    "min": 1,
-                    "max": 20
-                },
-                "c": {
-                    "min": 2,
-                    "max": 50
-                }
-            },
-            "formula": "(c - b) / a",
-            "round": 2
-        },
-        {
-            "id": "hard_eq_2",
-            "level": "hard",
-            "type": "equation",
-            "template": "Найди x:\n{a}x - {b} = {c}\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 5
-                },
-                "b": {
-                    "min": 1,
-                    "max": 20
-                },
-                "c": {
-                    "min": 2,
-                    "max": 50
-                }
-            },
-            "formula": "(c + b) / a",
-            "round": 2
-        },
-        {
-            "id": "hard_eq_3",
-            "level": "hard",
-            "type": "equation",
-            "template": "Найди x:\nx / {a} = {b}",
-            "variables": {
-                "a": {
-                    "min": 2,
-                    "max": 10
-                },
-                "b": {
-                    "min": 2,
-                    "max": 50
-                }
-            },
-            "formula": "a * b",
-            "round": 2
-        },
-        {
-            "id": "hard_eq_4",
-            "level": "hard",
-            "type": "equation",
-            "template": "Найди x:\nx * {a} = {b}\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 2,
-                    "max": 20
-                },
-                "b": {
-                    "min": 2,
-                    "max": 50
-                }
-            },
-            "formula": "b / a",
-            "round": 2
-        },
-        {
-            "id": "hard_eq_5",
-            "level": "hard",
-            "type": "equation",
-            "template": "Найди x:\n({a} + x) = {b}",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 100
-                },
-                "b": {
-                    "min": 10,
-                    "max": 125
-                }
-            },
-            "formula": "b - a",
-            "round": 2
-        },
-        {
-            "id": "hard_prog_1",
-            "level": "hard",
-            "type": "progression",
-            "template": "Арифметическая прогрессия: a1={a}, d={d}.\nНайди a{n}.\nФормула: a1 + (n - 1) * d",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 20
-                },
-                "d": {
-                    "min": 1,
-                    "max": 20
-                },
-                "n": {
-                    "min": 2,
-                    "max": 10
-                }
-            },
-            "formula": "a + (n - 1) * d",
-            "round": 2
-        },
-        {
-            "id": "hard_prog_2",
-            "level": "hard",
-            "type": "progression",
-            "template": "Найди сумму первых {n} чисел, если:\na1={a}, d={d}.\nФормула: n / 2 * (2 * a1 + (n - 1) * d)",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 10
-                },
-                "d": {
-                    "min": 1,
-                    "max": 10
-                },
-                "n": {
-                    "min": 2,
-                    "max": 7
-                }
-            },
-            "formula": "n / 2 * (2 * a + (n - 1) * d)",
-            "round": 2
-        },
-        {
-            "id": "hard_prog_5",
-            "level": "hard",
-            "type": "progression",
-            "template": "Найди разность между a{n} и a1\na1={a}, d={d}.\nФормула: a1 + (n - 1) * d",
-            "variables": {
-                "a": {
-                    "min": 1,
-                    "max": 15
-                },
-                "d": {
-                    "min": 1,
-                    "max": 10
-                },
-                "n": {
-                    "min": 2,
-                    "max": 7
-                }
-            },
-            "formula": "(a + (n - 1) * d) - a",
-            "round": 2
-        },
-        {
-            "id": "hard_formula_1",
-            "level": "hard",
-            "type": "formula",
-            "template": "Найди скорость (V), при:\nS={s} км, t={t} ч.\nФормула: S = V * t\nПриведи к виду 0.00",
-            "variables": {
-                "s": {
-                    "min": 10,
-                    "max": 150
-                },
-                "t": {
-                    "min": 1,
-                    "max": 20
-                }
-            },
-            "formula": "s / t",
-            "round": 2
-        },
-        {
-            "id": "hard_formula_2",
-            "level": "hard",
-            "type": "formula",
-            "template": "Найди путь (S), при:\nV={v} км/ч, t={t} ч.\nФормула: S = V * t",
-            "variables": {
-                "v": {
-                    "min": 10,
-                    "max": 100
-                },
-                "t": {
-                    "min": 1,
-                    "max": 20
-                }
-            },
-            "formula": "v * t",
-            "round": 2
-        },
-        {
-            "id": "hard_formula_3",
-            "level": "hard",
-            "type": "formula",
-            "template": "Найди силу (F), при:\nm={m} кг, a={a} м/с².\nФормула: F = m * a\n",
-            "variables": {
-                "m": {
-                    "min": 1,
-                    "max": 100
-                },
-                "a": {
-                    "min": 1,
-                    "max": 20
-                }
-            },
-            "formula": "m * a",
-            "round": 2
-        },
-        {
-            "id": "hard_formula_4",
-            "level": "hard",
-            "type": "formula",
-            "template": "Найди время (t), при:\nS={s}, V={v}.\nФормула: S = V * t\nПриведи к виду 0.00",
-            "variables": {
-                "s": {
-                    "min": 10,
-                    "max": 250
-                },
-                "v": {
-                    "min": 1,
-                    "max": 50
-                }
-            },
-            "formula": "s / v",
-            "round": 2
-        },
-        {
-            "id": "hard_formula_5",
-            "level": "hard",
-            "type": "formula",
-            "template": "Найди ускорение (a), при:\nF={f}, m={m}.\nФормула: F = m * a\nПриведи к виду 0.00",
-            "variables": {
-                "f": {
-                    "min": 10,
-                    "max": 1000
-                },
-                "m": {
-                    "min": 1,
-                    "max": 100
-                }
-            },
-            "formula": "f / m",
-            "round": 2
-        },
-        {
-            "id": "hard_percent_1",
-            "level": "hard",
-            "type": "complex_percentage",
-            "template": "Цена {a} увеличилась на {p}%, затем уменьшилась на {q}%.\nСколько в итоге?\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 10,
-                    "max": 100
-                },
-                "p": {
-                    "min": 5,
-                    "max": 25
-                },
-                "q": {
-                    "min": 5,
-                    "max": 25
-                }
-            },
-            "formula": "a * (1 + p / 100) * (1 - q / 100)",
-            "round": 2
-        },
-        {
-            "id": "hard_percent_2",
-            "level": "hard",
-            "type": "complex_percentage",
-            "template": "Число {a} увеличили на {p}%, затем ещё на {q}%.\nСколько в итоге?\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 10,
-                    "max": 100
-                },
-                "p": {
-                    "min": 5,
-                    "max": 25
-                },
-                "q": {
-                    "min": 5,
-                    "max": 25
-                }
-            },
-            "formula": "a * (1 + p / 100) * (1 + q / 100)",
-            "round": 2
-        },
-        {
-            "id": "hard_percent_3",
-            "level": "hard",
-            "type": "complex_percentage",
-            "template": "После скидки {p}% цена стала {b}.\nНайди исходную цену\nПриведи к виду 0.00",
-            "variables": {
-                "b": {
-                    "min": 50,
-                    "max": 100
-                },
-                "p": {
-                    "min": 5,
-                    "max": 50
-                }
-            },
-            "formula": "b / (1 - p / 100)",
-            "round": 2
-        },
-        {
-            "id": "hard_percent_4",
-            "level": "hard",
-            "type": "complex_percentage",
-            "template": "Цена {a} уменьшилась на {p}%, затем увеличилась на {q}%.\nСколько в итоге?\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 50,
-                    "max": 100
-                },
-                "p": {
-                    "min": 5,
-                    "max": 25
-                },
-                "q": {
-                    "min": 5,
-                    "max": 25
-                }
-            },
-            "formula": "a * (1 - p / 100) * (1 + q / 100)",
-            "round": 2
-        },
-        {
-            "id": "hard_percent_5",
-            "level": "hard",
-            "type": "complex_percentage",
-            "template": "Сколько процентов составляет разница между {a} и {b} от {a}?\nПриведи к виду 0.00",
-            "variables": {
-                "a": {
-                    "min": 50,
-                    "max": 100
-                },
-                "b": {
-                    "min": 10,
-                    "max": 50
-                }
-            },
-            "formula": "(a - b) * 100 / a",
-            "round": 2
-        }
-    ]
+  "tasks": [
+    {
+      "id": "easy_add_1",
+      "level": "easy",
+      "type": "addition",
+      "template": "{a} + {b}",
+      "variables": {
+        "a": { "min": 1, "max": 100 },
+        "b": { "min": 1, "max": 100 }
+      },
+      "formula": "a + b",
+      "round": 2
+    },
+    {
+      "id": "easy_sub_1",
+      "level": "easy",
+      "type": "subtraction",
+      "template": "{a} - {b}",
+      "variables": {
+        "a": { "min": 20, "max": 100 },
+        "b": { "min": 1, "max": 20 }
+      },
+      "formula": "a - b",
+      "round": 2
+    },
+    {
+      "id": "easy_mul_1",
+      "level": "easy",
+      "type": "multiplication",
+      "template": "{a} × {b}",
+      "variables": {
+        "a": { "min": 1, "max": 20 },
+        "b": { "min": 1, "max": 10 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "easy_div_1",
+      "level": "easy",
+      "type": "division",
+      "template": "{a} ÷ {b}",
+      "variables": {
+        "a": { "min": 10, "max": 100 },
+        "b": { "min": 1, "max": 10 }
+      },
+      "formula": "a / b",
+      "round": 2
+    },
+
+    {
+      "id": "easy_word_1",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "У тебя было {a} конфет, ты съел {b}. Сколько осталось?",
+      "variables": {
+        "a": { "min": 10, "max": 100 },
+        "b": { "min": 1, "max": 20 }
+      },
+      "formula": "a - b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_2",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "Один билет стоит {a} монет. Ты купил {b} билетов. Сколько заплатил?",
+      "variables": {
+        "a": { "min": 5, "max": 50 },
+        "b": { "min": 1, "max": 10 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_3",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "Ты прошёл {a} км утром и {b} км вечером. Сколько всего?",
+      "variables": {
+        "a": { "min": 1, "max": 50 },
+        "b": { "min": 1, "max": 50 }
+      },
+      "formula": "a + b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_4",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "У тебя {a} монет, ты потратил {b}. Сколько осталось?",
+      "variables": {
+        "a": { "min": 20, "max": 100 },
+        "b": { "min": 1, "max": 50 }
+      },
+      "formula": "a - b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_5",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "В каждой коробке {a} яблок. В {b} коробках сколько яблок?",
+      "variables": {
+        "a": { "min": 5, "max": 20 },
+        "b": { "min": 2, "max": 10 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_7",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "У тебя было {a} книг, подарили ещё {b}. Сколько стало?",
+      "variables": {
+        "a": { "min": 5, "max": 50 },
+        "b": { "min": 1, "max": 30 }
+      },
+      "formula": "a + b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_8",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "В магазине было {a} товаров, продали {b}. Сколько осталось?",
+      "variables": {
+        "a": { "min": 20, "max": 100 },
+        "b": { "min": 1, "max": 50 }
+      },
+      "formula": "a - b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_9",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "Одна бутылка стоит {a} монет. Сколько стоят {b} бутылок?",
+      "variables": {
+        "a": { "min": 1, "max": 20 },
+        "b": { "min": 2, "max": 10 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_11",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "Ты купил {b} шоколадок по {a} монет. Сколько потратил?",
+      "variables": {
+        "a": { "min": 1, "max": 10 },
+        "b": { "min": 2, "max": 10 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_12",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "У тебя было {a} монет, друг дал ещё {b}. Сколько стало?",
+      "variables": {
+        "a": { "min": 10, "max": 50 },
+        "b": { "min": 5, "max": 50 }
+      },
+      "formula": "a + b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_13",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "Ты прочитал {a} страниц утром и {b} вечером. Сколько всего?",
+      "variables": {
+        "a": { "min": 5, "max": 50 },
+        "b": { "min": 5, "max": 50 }
+      },
+      "formula": "a + b",
+      "round": 2
+    },
+    {
+      "id": "easy_word_14",
+      "level": "easy",
+      "type": "word_problem",
+      "template": "В корзине было {a} фруктов, съели {b}. Сколько осталось?",
+      "variables": {
+        "a": { "min": 20, "max": 100 },
+        "b": { "min": 5, "max": 50 }
+      },
+      "formula": "a - b",
+      "round": 2
+    },
+
+    {
+      "id": "hard_add_1",
+      "level": "hard",
+      "type": "addition",
+      "template": "{a} + {b}",
+      "variables": {
+        "a": { "min": 100, "max": 1000 },
+        "b": { "min": 100, "max": 1000 }
+      },
+      "formula": "a + b",
+      "round": 2
+    },
+    {
+      "id": "hard_sub_1",
+      "level": "hard",
+      "type": "subtraction",
+      "template": "{a} - {b}",
+      "variables": {
+        "a": { "min": 200, "max": 1000 },
+        "b": { "min": 50, "max": 500 }
+      },
+      "formula": "a - b",
+      "round": 2
+    },
+    {
+      "id": "hard_mul_1",
+      "level": "hard",
+      "type": "multiplication",
+      "template": "{a} × {b}",
+      "variables": {
+        "a": { "min": 10, "max": 100 },
+        "b": { "min": 10, "max": 50 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "hard_div_1",
+      "level": "hard",
+      "type": "division",
+      "template": "{a} ÷ {b}",
+      "variables": {
+        "a": { "min": 100, "max": 1000 },
+        "b": { "min": 2, "max": 50 }
+      },
+      "formula": "a / b",
+      "round": 2
+    },
+
+    {
+      "id": "hard_word_1",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "Компания продала {a} товаров, потом ещё {b}. Сколько всего?",
+      "variables": {
+        "a": { "min": 100, "max": 500 },
+        "b": { "min": 100, "max": 500 }
+      },
+      "formula": "a + b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_2",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "На складе было {a} товаров, продали {b}. Сколько осталось?",
+      "variables": {
+        "a": { "min": 500, "max": 1000 },
+        "b": { "min": 100, "max": 500 }
+      },
+      "formula": "a - b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_3",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "Один ноутбук стоит {a} монет. Купили {b} штук. Сколько заплатили?",
+      "variables": {
+        "a": { "min": 200, "max": 1000 },
+        "b": { "min": 2, "max": 10 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_6",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "Завод выпускает {a} деталей в день. Сколько за {b} дней?",
+      "variables": {
+        "a": { "min": 50, "max": 200 },
+        "b": { "min": 5, "max": 20 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_7",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "У тебя было {a} монет, ты потратил {b}. Сколько осталось?",
+      "variables": {
+        "a": { "min": 200, "max": 1000 },
+        "b": { "min": 50, "max": 500 }
+      },
+      "formula": "a - b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_8",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "Купили {b} товаров по {a} монет. Общая сумма?",
+      "variables": {
+        "a": { "min": 20, "max": 200 },
+        "b": { "min": 5, "max": 20 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_9",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "Проехали {a} км утром и {b} км вечером. Сколько всего?",
+      "variables": {
+        "a": { "min": 100, "max": 500 },
+        "b": { "min": 100, "max": 500 }
+      },
+      "formula": "a + b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_11",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "Склад получил {a} товаров и отправил {b}. Остаток?",
+      "variables": {
+        "a": { "min": 300, "max": 1000 },
+        "b": { "min": 100, "max": 500 }
+      },
+      "formula": "a - b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_12",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "Ты купил {b} книг по {a} монет. Сколько заплатил?",
+      "variables": {
+        "a": { "min": 10, "max": 100 },
+        "b": { "min": 5, "max": 20 }
+      },
+      "formula": "a * b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_13",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "Прочитал {a} страниц в первый день и {b} во второй. Всего?",
+      "variables": {
+        "a": { "min": 100, "max": 500 },
+        "b": { "min": 100, "max": 500 }
+      },
+      "formula": "a + b",
+      "round": 2
+    },
+    {
+      "id": "hard_word_14",
+      "level": "hard",
+      "type": "word_problem",
+      "template": "Было {a} единиц товара, продали {b}. Сколько осталось?",
+      "variables": {
+        "a": { "min": 300, "max": 1000 },
+        "b": { "min": 100, "max": 500 }
+      },
+      "formula": "a - b",
+      "round": 2
+    }
+
+  ]
 }

@@ -18,8 +18,7 @@ data class VariableRange(
 
 enum class DifficultyLevel(val value: String) {
     EASY("easy"),
-    HARD("hard"),
-    COMBI("combi");
+    HARD("hard");
 
     companion object {
         fun fromString(value: String): DifficultyLevel {

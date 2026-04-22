@@ -11,55 +11,195 @@
 
     <TextView
         android:id="@+id/title"
-        android:text="МатКач"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#333333"/> <!-- Темный текст для заголовка -->
+        android:layout_marginBottom="16dp"
+        android:text="МатКач"
+        android:textColor="#333333"
+        android:textSize="34sp"
+        android:textStyle="bold" /> <!-- Темный текст для заголовка -->
+
+    <!-- Выбор уровня -->
+
+    <TextView
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="Выберите сложность"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/levelGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/easyLevel"
+            android:layout_width="130dp"
+            android:layout_height="25dp"
+            android:checked="true"
+            android:text="Обычный"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/hardLevel"
+            android:layout_width="130dp"
+            android:layout_height="25dp"
+            android:text="Сложный"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+    <!-- Типы задач -->
+
+
+    <TextView
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Выберите типы задач"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/cbAddition"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Сложение"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/cbSubtraction"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Вычитание"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/cbMultiplication"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Умножение"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/cbDivision"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Деление"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/cbWord"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Текстовые задачи"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
 
     <Button
-        android:id="@+id/btnEasy"
-        android:text="Лёгкий"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnBegin"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/bg_neu_button"
+        android:padding="6dp"
         android:stateListAnimator="@null"
+        android:text="Поехали!"
         android:textColor="#FFFFFF"
-        android:padding="16dp"/>
-
-    <Button
-        android:id="@+id/btnHard"
-        android:text="Сложный"
-        android:layout_marginTop="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_neu_button"
-        android:stateListAnimator="@null"
-        android:textColor="#FFFFFF"
-        android:padding="16dp"/>
-
-    <Button
-        android:id="@+id/btnCombi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Комбинированный"
-        android:background="@drawable/bg_neu_button"
-        android:stateListAnimator="@null"
-        android:textColor="#FFFFFF"
-        android:padding="16dp"/>
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnAbout"
-        android:text="Об авторах"
-        android:layout_marginTop="32dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:background="@drawable/bg_neu_button"
+        android:padding="6dp"
         android:stateListAnimator="@null"
+        android:text="Об авторах"
         android:textColor="#FFFFFF"
-        android:padding="16dp"/>
+        android:textSize="20sp" />
 
 </LinearLayout>
+
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    android:gravity="center"-->
+<!--    android:padding="24dp"-->
+<!--    android:id="@+id/main"-->
+<!--    android:background="@color/bg_color"> &lt;!&ndash; 1. Фон экрана &ndash;&gt;-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/title"-->
+<!--        android:text="МатКач"-->
+<!--        android:textSize="28sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_marginBottom="32dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="#333333"/> &lt;!&ndash; Темный текст для заголовка &ndash;&gt;-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnEasy"-->
+<!--        android:text="Лёгкий"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/bg_neu_button"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:padding="16dp"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnHard"-->
+<!--        android:text="Сложный"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/bg_neu_button"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:padding="16dp"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnCombi"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="Комбинированный"-->
+<!--        android:background="@drawable/bg_neu_button"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:padding="16dp"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnAbout"-->
+<!--        android:text="Об авторах"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/bg_neu_button"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:padding="16dp"/>-->
+
+<!--</LinearLayout>-->

@@ -5,26 +5,25 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import kotlin.random.Random
-
 
 class MainActivity : AppCompatActivity() {
-    fun updateLivesView(livesText: TextView, lives: Int) {
-        livesText.text = "❤️".repeat(lives)
+
+    private fun updateLives(livesText: TextView, lives: Int) {
+        livesText.text = "Попытки: $lives"
     }
 
-    @SuppressLint("DefaultLocale")
-    fun formatNumber(value: Double): String {
-        return if (value % 1.0 == 0.0) value.toInt().toString() else String.format("%.2f", value)
+    private fun updateProgress(progressText: TextView, solved: Int, max: Int) {
+        progressText.text = "$solved / $max"
     }
 
-    fun getRandomDifficulty(): DifficultyLevel {
-        val num = Random.nextInt(2)
-        return if (num == 0) DifficultyLevel.EASY else DifficultyLevel.HARD
+    private fun format(value: Double): String {
+        return if (value % 1.0 == 0.0) value.toInt().toString()
+        else String.format("%.2f", value)
     }
 
     @SuppressLint("SetTextI18n")
@@ -33,46 +32,53 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         setContentView(R.layout.activity_main)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            val sys = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(sys.left, sys.top, sys.right, sys.bottom)
             insets
         }
 
+        // UI
         val button = findViewById<Button>(R.id.checkButton)
         val input = findViewById<EditText>(R.id.answerInput)
         val backButton = findViewById<Button>(R.id.backButton)
+        val taskText = findViewById<TextView>(R.id.taskText)
         val livesText = findViewById<TextView>(R.id.livesText)
+        val coinsText = findViewById<TextView>(R.id.coinsText)
+
+        // Game settings
+        val maxTasks = 20
 
         val difficulty = intent.getStringExtra("difficulty") ?: "easy"
+        val types = intent.getStringArrayListExtra("types") ?: arrayListOf()
 
-        lateinit var generator: TaskGenerator
-        lateinit var currentTask: GeneratedTask
-        var isAnswered = false
-        var lives = 3
-
-        // Score points
-        var correct = 0
-        var missing = 0
-
-        // Tasks generator
-        val repository = TaskRepository(this)
-        val tasks = repository.loadTasks()
-        var level = DifficultyLevel.fromString(difficulty)
-
-        if (difficulty == DifficultyLevel.COMBI.value) {
-            level = getRandomDifficulty()
+        // защита от пустых типов
+        if (types.isEmpty()) {
+            taskText.text = "Ошибка: не выбраны типы задач"
+            button.isEnabled = false
+            return
         }
 
-        generator = TaskGenerator(tasks)
-        currentTask = generator.generate(level)
+        val repository = TaskRepository(this)
+        val tasks = repository.loadTasks()
+        val generator = TaskGenerator(tasks)
 
-        // Lives
-        updateLivesView(livesText, lives)
+        val level = DifficultyLevel.fromString(difficulty)
 
-        val taskText = findViewById<TextView>(R.id.taskText)
+        // Game state
+        var currentTask = generator.generate(level, types)
+
+        var lives = 3
+        var solved = 0
+        var correct = 0
+
+        var isAnswered = false
+
+        // init UI
         taskText.text = currentTask.text
-        // TODO: Сообщение пользователю: если результат дробь - округлить до сотых
+        updateLives(livesText, lives)
+        updateProgress(coinsText, solved, maxTasks)
 
         backButton.setOnClickListener {
             finish()
@@ -81,40 +87,50 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
 
             if (!isAnswered) {
-                // Check input
-                val userAnswer = input.text.toString().toDoubleOrNull()
 
-                if (userAnswer != null) {
-                    val isCorrect = kotlin.math.abs(userAnswer - currentTask.answer) < 0.01
+                val userAnswer = input.text.toString()
+                    .replace(",", ".")
+                    .toDoubleOrNull()
 
-                    if (isCorrect) {
-                        correct++
-                        taskText.text = "✅ Верно!"
-                    } else {
-                        missing++
-                        lives--
-                        updateLivesView(livesText, lives)
-                        taskText.text =
-                            "❌ Неверно. Ответ: ${formatNumber(currentTask.answer)}"
-                    }
-
-                    if (lives == 0) {
-                        taskText.text = taskText.text.toString() +
-                            "\n Игра окончена. Правильных ответов: ${correct} из ${correct + missing}"
-                        button.isEnabled = false
-                    }
-
-                    input.isEnabled = false
-                    button.text = "Дальше"
-                    isAnswered = true
+                if (userAnswer == null) {
+                    Toast.makeText(this, "Введите число", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
                 }
+
+                solved++
+
+                val isCorrect = kotlin.math.abs(userAnswer - currentTask.answer) < 0.01
+
+                if (isCorrect) {
+                    correct++
+                    taskText.text = "✅ Верно!"
+                } else {
+                    lives--
+                    updateLives(livesText, lives)
+                    taskText.text = "❌ Неверно. Ответ: ${format(currentTask.answer)}"
+                }
+
+                updateProgress(coinsText, solved, maxTasks)
+
+                if (lives <= 0) {
+                    taskText.text = "Игра окончена. $correct / $solved"
+                    button.isEnabled = false
+                    return@setOnClickListener
+                }
+
+                if (solved >= maxTasks) {
+                    taskText.text = "🎉 Уровень пройден! $correct / $solved"
+                    button.isEnabled = false
+                    return@setOnClickListener
+                }
+
+                input.isEnabled = false
+                button.text = "Дальше"
+                isAnswered = true
 
             } else {
-                // Next Task
-                if (difficulty == DifficultyLevel.COMBI.value) {
-                    level = getRandomDifficulty()
-                }
-                currentTask = generator.generate(level)
+
+                currentTask = generator.generate(level, types)
 
                 taskText.text = currentTask.text
                 input.text.clear()
