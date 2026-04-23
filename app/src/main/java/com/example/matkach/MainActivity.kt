@@ -14,11 +14,11 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
 
     private fun updateLives(livesText: TextView, lives: Int) {
-        livesText.text = "Попытки: $lives"
+        livesText.text = "Ошибок: ${3 - lives} из 3"
     }
 
     private fun updateProgress(progressText: TextView, solved: Int, max: Int) {
-        progressText.text = "$solved / $max"
+        progressText.text = "Решено: $solved из $max"
     }
 
     private fun format(value: Double): String {
@@ -113,13 +113,13 @@ class MainActivity : AppCompatActivity() {
                 updateProgress(coinsText, solved, maxTasks)
 
                 if (lives <= 0) {
-                    taskText.text = "Игра окончена. $correct / $solved"
+                    taskText.text = taskText.text.toString() + "\nИгра окончена.\nМного ошибок!"
                     button.isEnabled = false
                     return@setOnClickListener
                 }
 
                 if (solved >= maxTasks) {
-                    taskText.text = "🎉 Уровень пройден! $correct / $solved"
+                    taskText.text = taskText.text.toString() + "\n🎉 Уровень пройден!\n$correct / $solved"
                     button.isEnabled = false
                     return@setOnClickListener
                 }
