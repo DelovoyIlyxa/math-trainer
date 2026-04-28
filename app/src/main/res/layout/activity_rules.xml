@@ -16,25 +16,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Об авторах"
+            android:text="Правила игры"
             android:textSize="32sp"
             android:textStyle="bold"
             android:textColor="#333333"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="24dp"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="496dp"
-            android:layout_marginBottom="32dp"
-            android:gravity="center"
-            android:lineSpacingExtra="6dp"
-            android:text="👨‍💻 Мы — студенты ОГУ, Института математики и информационных технологий, группа 24ПМИ(б)ППКС.\n
-            Коняев и Понаморёв Плюшки          \n\n🚀 Опытные разработчики на Android Studio, постоянно развивающиеся в профессии.\n\n🎯 В 20 лет достигли уровня Middle и уверенно движемся к Senior.\n\n💼 В данный момент находимся в активном поиске работы и открыты к интересным предложениям.\n\n📞 По вопросам трудоустройства:\n8 (800) 555-35-35"
-            android:textColor="#444444"
-            android:textSize="18sp" />
+            android:layout_height="wrap_content"
+            android:text="1️⃣ Выберите уровень сложности и типы задач на главном экране.\n\n2️⃣ Вам будет предложено решить 20 задач.\n\n3️⃣ У вас есть 3 попытки. За каждый неверный ответ отнимается одна жизнь.\n\n4️⃣ Введите ответ в поле и нажмите «Проверить».\n\n5️⃣ При успешном решении нажмите «Дальше» для перехода к следующей задаче.\n\n6️⃣ Если жизни закончатся или вы решите все 20 задач, раунд завершится."
+            android:textSize="18sp"
+            android:textColor="#555555"
+            android:lineSpacingExtra="8dp"
+            android:layout_marginBottom="32dp"/>
 
         <Button
-            android:id="@+id/btnBack"
+            android:id="@+id/btnBackRules"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:text="Назад"

@@ -136,6 +136,17 @@
         android:text="Об авторах"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
+    <Button
+        android:id="@+id/btnRules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_neu_button"
+        android:padding="6dp"
+        android:stateListAnimator="@null"
+        android:text="Правила"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
 
 </LinearLayout>
 

@@ -32,6 +32,14 @@ class MainMenuActivity : AppCompatActivity() {
         val cbDivision = findViewById<CheckBox>(R.id.cbDivision)
         val cbWord = findViewById<CheckBox>(R.id.cbWord)
 
+        //Кнопка правил
+        //start
+        val btnRules = findViewById<Button>(R.id.btnRules)
+        btnRules.setOnClickListener {
+            startActivity(Intent(this, RulesActivity::class.java))
+        }
+        //end
+
         btnBegin.setOnClickListener {
 
             // 📌 УРОВЕНЬ
