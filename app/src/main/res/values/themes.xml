@@ -1,9 +1,33 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MatKach" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.MatKach" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_purple</item>
+        <item name="colorPrimaryVariant">@color/primary_purple_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/bg_color</item>
     </style>
 
     <style name="Theme.MatKach" parent="Base.Theme.MatKach" />
+
+    <!-- Стиль кнопки — большая, фиолетовая -->
+    <style name="Widget.MatKach.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/primary_purple</item>
+        <item name="cornerRadius">@dimen/button_corner</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Стиль кнопки «Назад» — выглядит мягче -->
+    <style name="Widget.MatKach.Button.Secondary" parent="Widget.MatKach.Button">
+        <item name="backgroundTint">@color/shadow_dark</item>
+        <item name="android:textColor">@color/color_text_primary</item>
+    </style>
+
+    <!-- Стиль кнопки Аа -->
+    <style name="Widget.MatKach.Button.FontSize">
+        <item name="android:background">@drawable/bg_font_button</item>
+        <item name="android:textColor">@color/font_btn_text</item>
+        <item name="android:elevation">4dp</item>
+    </style>
 </resources>

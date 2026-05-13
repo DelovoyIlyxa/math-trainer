@@ -1,6 +1,5 @@
 package com.example.matkach
 
-import android.annotation.SuppressLint
 import android.util.Log
 import net.objecthunter.exp4j.ExpressionBuilder
 import kotlin.random.Random
@@ -12,105 +11,73 @@ data class GeneratedTask(
 
 class TaskGenerator(private val tasks: List<Task>) {
 
-    fun generate(level: DifficultyLevel, types: List<String>): GeneratedTask {
+    companion object {
+        private const val TAG = "TaskGenerator"
+    }
 
+    fun generate(level: DifficultyLevel, types: List<String>): GeneratedTask {
         val filtered = tasks.filter {
-            it.level.equals(level.value, ignoreCase = true) &&
-                    it.type in types
+            it.level.equals(level.value, ignoreCase = true) && it.type in types
         }
 
         if (filtered.isEmpty()) {
-            Log.e("TASK_GENERATOR", "EMPTY FILTER")
-            Log.e("TASK_GENERATOR", "level=${level.value}")
-            Log.e("TASK_GENERATOR", "types=$types")
-
-            return GeneratedTask(
-                text = "Нет задач для выбранных параметров",
-                answer = 0.0
-            )
+            Log.e(TAG, "No tasks found for level=${level.value}, types=$types")
+            return GeneratedTask(text = "Нет задач для выбранных параметров", answer = 0.0)
         }
 
         val task = filtered.random()
+        val values = generateVariables(task)
 
+        return buildTask(task, values)
+    }
+
+    /**
+     * Генерирует значения переменных с учётом флага needsWholeDivision.
+     * Деление больше не требует отдельного if в generate() — логика инкапсулирована здесь.
+     */
+    private fun generateVariables(task: Task): Map<String, Double> {
         val values = mutableMapOf<String, Double>()
 
-        // =========================
-        // 1. ГЕНЕРАЦИЯ ПЕРЕМЕННЫХ
-        // =========================
-        for ((key, range) in task.variables) {
-
-            val value = Random.nextInt(
-                range.min.toInt(),
-                range.max.toInt() + 1
-            ).toDouble()
-
-            values[key] = value
-        }
-
-        // =========================
-        // 2. СПЕЦ-ЛОГИКА ДЛЯ ДЕЛЕНИЯ
-        // =========================
-        if (task.type == "division") {
-
+        if (task.needsWholeDivision) {
+            // Гарантируем целочисленное деление: a = result * b
             val result = Random.nextInt(2, 20)
             val b = Random.nextInt(2, 20)
-            val a = result * b
-
-            values["a"] = a.toDouble()
+            values["a"] = (result * b).toDouble()
             values["b"] = b.toDouble()
-
-            val text = task.template
-                .replace("{a}", a.toString())
-                .replace("{b}", b.toString())
-
-            return GeneratedTask(
-                text = text,
-                answer = result.toDouble()
-            )
+        } else {
+            for ((key, range) in task.variables) {
+                values[key] = Random.nextInt(range.min.toInt(), range.max.toInt() + 1).toDouble()
+            }
         }
 
-        // =========================
-        // 3. ОБЫЧНЫЕ ЗАДАЧИ
-        // =========================
+        return values
+    }
+
+    private fun buildTask(task: Task, values: Map<String, Double>): GeneratedTask {
         var text = task.template
-
         for ((key, value) in values) {
-
-            val formatted = if (value % 1.0 == 0.0) {
-                value.toInt().toString()
-            } else {
-                String.format("%.2f", value)
-            }
-
-            text = text.replace("{$key}", formatted)
+            text = text.replace("{$key}", formatValue(value))
         }
 
         return try {
-
             val expression = ExpressionBuilder(task.formula)
                 .variables(values.keys)
                 .build()
+                .apply { values.forEach { (k, v) -> setVariable(k, v) } }
 
-            for ((key, value) in values) {
-                expression.setVariable(key, value)
-            }
+            val rawResult = expression.evaluate()
+            // Используем поле round из JSON вместо захардкоженного "%.2f"
+            val scale = Math.pow(10.0, task.round.toDouble())
+            val result = Math.round(rawResult * scale).toDouble() / scale
 
-            var result = expression.evaluate()
-            result = String.format("%.2f", result).toDouble()
-
-            GeneratedTask(
-                text = text,
-                answer = result
-            )
-
+            GeneratedTask(text = text, answer = result)
         } catch (e: Exception) {
-
-            Log.e("TASK_GENERATOR", "Expression error: $text", e)
-
-            GeneratedTask(
-                text = "Ошибка задачи",
-                answer = 0.0
-            )
+            Log.e(TAG, "Expression error for task '${task.id}': $text", e)
+            GeneratedTask(text = "Ошибка задачи", answer = 0.0)
         }
     }
+
+    private fun formatValue(value: Double): String =
+        if (value % 1.0 == 0.0) value.toInt().toString()
+        else String.format("%.2f", value)
 }

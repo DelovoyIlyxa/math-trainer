@@ -1,216 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
-    android:id="@+id/main"
-    android:background="@color/bg_color"> <!-- 1. Фон экрана -->
+    android:background="@color/bg_color">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="МатКач"
-        android:textColor="#333333"
-        android:textSize="34sp"
-        android:textStyle="bold" /> <!-- Темный текст для заголовка -->
+    <!-- Основной скролл-контент -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <!-- Выбор уровня -->
+        <LinearLayout
+            android:id="@+id/contentRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingStart="@dimen/padding_screen"
+            android:paddingEnd="@dimen/padding_screen"
+            android:paddingTop="32dp"
+            android:paddingBottom="100dp">
 
-    <TextView
-        android:layout_width="275dp"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="Выберите сложность"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+            <!-- Заголовок -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_app"
+                android:textColor="@color/color_text_primary"
+                android:textSize="42sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="28dp" />
 
-    <RadioGroup
-        android:id="@+id/levelGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <!-- Карточка: сложность -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_card"
+                android:layout_marginBottom="@dimen/margin_between">
 
-        <RadioButton
-            android:id="@+id/easyLevel"
-            android:layout_width="130dp"
-            android:layout_height="25dp"
-            android:checked="true"
-            android:text="Обычный"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_choose_difficulty"
+                    android:textColor="@color/color_text_secondary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
 
-        <RadioButton
-            android:id="@+id/hardLevel"
-            android:layout_width="130dp"
-            android:layout_height="25dp"
-            android:text="Сложный"
-            android:textSize="20sp" />
+                <RadioGroup
+                    android:id="@+id/levelGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-    </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/easyLevel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/level_easy"
+                        android:textSize="22sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp" />
 
-    <!-- Типы задач -->
+                    <RadioButton
+                        android:id="@+id/hardLevel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/level_hard"
+                        android:textSize="22sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp" />
 
+                </RadioGroup>
+            </LinearLayout>
 
-    <TextView
-        android:layout_width="275dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:text="Выберите типы задач"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+            <!-- Карточка: типы задач -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_card"
+                android:layout_marginBottom="@dimen/margin_large">
 
-    <CheckBox
-        android:id="@+id/cbAddition"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Сложение"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_choose_types"
+                    android:textColor="@color/color_text_secondary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
 
-    <CheckBox
-        android:id="@+id/cbSubtraction"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Вычитание"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/cbAddition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/type_addition"
+                    android:textSize="22sp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
 
-    <CheckBox
-        android:id="@+id/cbMultiplication"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Умножение"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/cbSubtraction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/type_subtraction"
+                    android:textSize="22sp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
 
-    <CheckBox
-        android:id="@+id/cbDivision"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:text="Деление"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/cbMultiplication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/type_multiplication"
+                    android:textSize="22sp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
 
-    <CheckBox
-        android:id="@+id/cbWord"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:text="Текстовые задачи"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/cbDivision"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/type_division"
+                    android:textSize="22sp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
 
+                <CheckBox
+                    android:id="@+id/cbWord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/type_word"
+                    android:textSize="22sp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
 
-    <Button
-        android:id="@+id/btnBegin"
-        android:layout_width="250dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/bg_neu_button"
-        android:padding="6dp"
-        android:stateListAnimator="@null"
-        android:text="Поехали!"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/btnAbout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/bg_neu_button"
-        android:padding="6dp"
-        android:stateListAnimator="@null"
-        android:text="Об авторах"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-    <Button
-        android:id="@+id/btnRules"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_neu_button"
-        android:padding="6dp"
-        android:stateListAnimator="@null"
-        android:text="Правила"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+            <!-- Кнопки действий -->
+            <Button
+                android:id="@+id/btnBegin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:background="@drawable/bg_neu_button"
+                android:stateListAnimator="@null"
+                android:text="@string/btn_start"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_between" />
 
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
 
-<!--<LinearLayout-->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:orientation="vertical"-->
-<!--    android:gravity="center"-->
-<!--    android:padding="24dp"-->
-<!--    android:id="@+id/main"-->
-<!--    android:background="@color/bg_color"> &lt;!&ndash; 1. Фон экрана &ndash;&gt;-->
+                <Button
+                    android:id="@+id/btnRules"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height_small"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_neu_button"
+                    android:stateListAnimator="@null"
+                    android:text="@string/btn_rules"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/title"-->
-<!--        android:text="МатКач"-->
-<!--        android:textSize="28sp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:layout_marginBottom="32dp"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textColor="#333333"/> &lt;!&ndash; Темный текст для заголовка &ndash;&gt;-->
+                <Button
+                    android:id="@+id/btnAbout"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height_small"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_neu_button"
+                    android:stateListAnimator="@null"
+                    android:text="@string/btn_about"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
-<!--    <Button-->
-<!--        android:id="@+id/btnEasy"-->
-<!--        android:text="Лёгкий"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/bg_neu_button"-->
-<!--        android:stateListAnimator="@null"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:padding="16dp"/>-->
+            </LinearLayout>
 
-<!--    <Button-->
-<!--        android:id="@+id/btnHard"-->
-<!--        android:text="Сложный"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/bg_neu_button"-->
-<!--        android:stateListAnimator="@null"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:padding="16dp"/>-->
+        </LinearLayout>
+    </ScrollView>
 
-<!--    <Button-->
-<!--        android:id="@+id/btnCombi"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="Комбинированный"-->
-<!--        android:background="@drawable/bg_neu_button"-->
-<!--        android:stateListAnimator="@null"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:padding="16dp"/>-->
+    <!-- Плавающая кнопка Аа — всегда поверх контента -->
 
-<!--    <Button-->
-<!--        android:id="@+id/btnAbout"-->
-<!--        android:text="Об авторах"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/bg_neu_button"-->
-<!--        android:stateListAnimator="@null"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:padding="16dp"/>-->
-
-<!--</LinearLayout>-->
+</FrameLayout>

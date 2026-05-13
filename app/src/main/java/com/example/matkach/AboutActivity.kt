@@ -2,25 +2,13 @@ package com.example.matkach
 
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-class AboutActivity : AppCompatActivity() {
+class AboutActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_about)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        findViewById<Button>(R.id.btnBack).setOnClickListener {
-            finish()
-        }
+        applySystemBarPadding(findViewById(R.id.main))
+        //setupFontButton(findViewById(R.id.btnFontSize), findViewById(R.id.contentRoot))
+        findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
     }
 }

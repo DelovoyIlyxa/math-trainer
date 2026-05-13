@@ -6,8 +6,14 @@
       "type": "addition",
       "template": "{a} + {b}",
       "variables": {
-        "a": { "min": 1, "max": 100 },
-        "b": { "min": 1, "max": 100 }
+        "a": {
+          "min": 1,
+          "max": 100
+        },
+        "b": {
+          "min": 1,
+          "max": 100
+        }
       },
       "formula": "a + b",
       "round": 2
@@ -18,8 +24,14 @@
       "type": "subtraction",
       "template": "{a} - {b}",
       "variables": {
-        "a": { "min": 20, "max": 100 },
-        "b": { "min": 1, "max": 20 }
+        "a": {
+          "min": 20,
+          "max": 100
+        },
+        "b": {
+          "min": 1,
+          "max": 20
+        }
       },
       "formula": "a - b",
       "round": 2
@@ -30,8 +42,14 @@
       "type": "multiplication",
       "template": "{a} × {b}",
       "variables": {
-        "a": { "min": 1, "max": 20 },
-        "b": { "min": 1, "max": 10 }
+        "a": {
+          "min": 1,
+          "max": 20
+        },
+        "b": {
+          "min": 1,
+          "max": 10
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -42,21 +60,33 @@
       "type": "division",
       "template": "{a} ÷ {b}",
       "variables": {
-        "a": { "min": 10, "max": 100 },
-        "b": { "min": 1, "max": 10 }
+        "a": {
+          "min": 10,
+          "max": 100
+        },
+        "b": {
+          "min": 1,
+          "max": 10
+        }
       },
       "formula": "a / b",
-      "round": 2
+      "round": 2,
+      "needsWholeDivision": true
     },
-
     {
       "id": "easy_word_1",
       "level": "easy",
       "type": "word_problem",
       "template": "У тебя было {a} конфет, ты съел {b}. Сколько осталось?",
       "variables": {
-        "a": { "min": 10, "max": 100 },
-        "b": { "min": 1, "max": 20 }
+        "a": {
+          "min": 10,
+          "max": 100
+        },
+        "b": {
+          "min": 1,
+          "max": 20
+        }
       },
       "formula": "a - b",
       "round": 2
@@ -67,8 +97,14 @@
       "type": "word_problem",
       "template": "Один билет стоит {a} монет. Ты купил {b} билетов. Сколько заплатил?",
       "variables": {
-        "a": { "min": 5, "max": 50 },
-        "b": { "min": 1, "max": 10 }
+        "a": {
+          "min": 5,
+          "max": 50
+        },
+        "b": {
+          "min": 1,
+          "max": 10
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -79,8 +115,14 @@
       "type": "word_problem",
       "template": "Ты прошёл {a} км утром и {b} км вечером. Сколько всего?",
       "variables": {
-        "a": { "min": 1, "max": 50 },
-        "b": { "min": 1, "max": 50 }
+        "a": {
+          "min": 1,
+          "max": 50
+        },
+        "b": {
+          "min": 1,
+          "max": 50
+        }
       },
       "formula": "a + b",
       "round": 2
@@ -91,8 +133,14 @@
       "type": "word_problem",
       "template": "У тебя {a} монет, ты потратил {b}. Сколько осталось?",
       "variables": {
-        "a": { "min": 20, "max": 100 },
-        "b": { "min": 1, "max": 50 }
+        "a": {
+          "min": 20,
+          "max": 100
+        },
+        "b": {
+          "min": 1,
+          "max": 50
+        }
       },
       "formula": "a - b",
       "round": 2
@@ -103,8 +151,14 @@
       "type": "word_problem",
       "template": "В каждой коробке {a} яблок. В {b} коробках сколько яблок?",
       "variables": {
-        "a": { "min": 5, "max": 20 },
-        "b": { "min": 2, "max": 10 }
+        "a": {
+          "min": 5,
+          "max": 20
+        },
+        "b": {
+          "min": 2,
+          "max": 10
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -115,8 +169,14 @@
       "type": "word_problem",
       "template": "У тебя было {a} книг, подарили ещё {b}. Сколько стало?",
       "variables": {
-        "a": { "min": 5, "max": 50 },
-        "b": { "min": 1, "max": 30 }
+        "a": {
+          "min": 5,
+          "max": 50
+        },
+        "b": {
+          "min": 1,
+          "max": 30
+        }
       },
       "formula": "a + b",
       "round": 2
@@ -127,8 +187,14 @@
       "type": "word_problem",
       "template": "В магазине было {a} товаров, продали {b}. Сколько осталось?",
       "variables": {
-        "a": { "min": 20, "max": 100 },
-        "b": { "min": 1, "max": 50 }
+        "a": {
+          "min": 20,
+          "max": 100
+        },
+        "b": {
+          "min": 1,
+          "max": 50
+        }
       },
       "formula": "a - b",
       "round": 2
@@ -139,8 +205,14 @@
       "type": "word_problem",
       "template": "Одна бутылка стоит {a} монет. Сколько стоят {b} бутылок?",
       "variables": {
-        "a": { "min": 1, "max": 20 },
-        "b": { "min": 2, "max": 10 }
+        "a": {
+          "min": 1,
+          "max": 20
+        },
+        "b": {
+          "min": 2,
+          "max": 10
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -151,8 +223,14 @@
       "type": "word_problem",
       "template": "Ты купил {b} шоколадок по {a} монет. Сколько потратил?",
       "variables": {
-        "a": { "min": 1, "max": 10 },
-        "b": { "min": 2, "max": 10 }
+        "a": {
+          "min": 1,
+          "max": 10
+        },
+        "b": {
+          "min": 2,
+          "max": 10
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -163,8 +241,14 @@
       "type": "word_problem",
       "template": "У тебя было {a} монет, друг дал ещё {b}. Сколько стало?",
       "variables": {
-        "a": { "min": 10, "max": 50 },
-        "b": { "min": 5, "max": 50 }
+        "a": {
+          "min": 10,
+          "max": 50
+        },
+        "b": {
+          "min": 5,
+          "max": 50
+        }
       },
       "formula": "a + b",
       "round": 2
@@ -175,8 +259,14 @@
       "type": "word_problem",
       "template": "Ты прочитал {a} страниц утром и {b} вечером. Сколько всего?",
       "variables": {
-        "a": { "min": 5, "max": 50 },
-        "b": { "min": 5, "max": 50 }
+        "a": {
+          "min": 5,
+          "max": 50
+        },
+        "b": {
+          "min": 5,
+          "max": 50
+        }
       },
       "formula": "a + b",
       "round": 2
@@ -187,21 +277,32 @@
       "type": "word_problem",
       "template": "В корзине было {a} фруктов, съели {b}. Сколько осталось?",
       "variables": {
-        "a": { "min": 20, "max": 100 },
-        "b": { "min": 5, "max": 50 }
+        "a": {
+          "min": 20,
+          "max": 100
+        },
+        "b": {
+          "min": 5,
+          "max": 50
+        }
       },
       "formula": "a - b",
       "round": 2
     },
-
     {
       "id": "hard_add_1",
       "level": "hard",
       "type": "addition",
       "template": "{a} + {b}",
       "variables": {
-        "a": { "min": 100, "max": 1000 },
-        "b": { "min": 100, "max": 1000 }
+        "a": {
+          "min": 100,
+          "max": 1000
+        },
+        "b": {
+          "min": 100,
+          "max": 1000
+        }
       },
       "formula": "a + b",
       "round": 2
@@ -212,8 +313,14 @@
       "type": "subtraction",
       "template": "{a} - {b}",
       "variables": {
-        "a": { "min": 200, "max": 1000 },
-        "b": { "min": 50, "max": 500 }
+        "a": {
+          "min": 200,
+          "max": 1000
+        },
+        "b": {
+          "min": 50,
+          "max": 500
+        }
       },
       "formula": "a - b",
       "round": 2
@@ -224,8 +331,14 @@
       "type": "multiplication",
       "template": "{a} × {b}",
       "variables": {
-        "a": { "min": 10, "max": 100 },
-        "b": { "min": 10, "max": 50 }
+        "a": {
+          "min": 10,
+          "max": 100
+        },
+        "b": {
+          "min": 10,
+          "max": 50
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -236,21 +349,33 @@
       "type": "division",
       "template": "{a} ÷ {b}",
       "variables": {
-        "a": { "min": 100, "max": 1000 },
-        "b": { "min": 2, "max": 50 }
+        "a": {
+          "min": 100,
+          "max": 1000
+        },
+        "b": {
+          "min": 2,
+          "max": 50
+        }
       },
       "formula": "a / b",
-      "round": 2
+      "round": 2,
+      "needsWholeDivision": true
     },
-
     {
       "id": "hard_word_1",
       "level": "hard",
       "type": "word_problem",
       "template": "Компания продала {a} товаров, потом ещё {b}. Сколько всего?",
       "variables": {
-        "a": { "min": 100, "max": 500 },
-        "b": { "min": 100, "max": 500 }
+        "a": {
+          "min": 100,
+          "max": 500
+        },
+        "b": {
+          "min": 100,
+          "max": 500
+        }
       },
       "formula": "a + b",
       "round": 2
@@ -261,8 +386,14 @@
       "type": "word_problem",
       "template": "На складе было {a} товаров, продали {b}. Сколько осталось?",
       "variables": {
-        "a": { "min": 500, "max": 1000 },
-        "b": { "min": 100, "max": 500 }
+        "a": {
+          "min": 500,
+          "max": 1000
+        },
+        "b": {
+          "min": 100,
+          "max": 500
+        }
       },
       "formula": "a - b",
       "round": 2
@@ -273,8 +404,14 @@
       "type": "word_problem",
       "template": "Один ноутбук стоит {a} монет. Купили {b} штук. Сколько заплатили?",
       "variables": {
-        "a": { "min": 200, "max": 1000 },
-        "b": { "min": 2, "max": 10 }
+        "a": {
+          "min": 200,
+          "max": 1000
+        },
+        "b": {
+          "min": 2,
+          "max": 10
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -285,8 +422,14 @@
       "type": "word_problem",
       "template": "Завод выпускает {a} деталей в день. Сколько за {b} дней?",
       "variables": {
-        "a": { "min": 50, "max": 200 },
-        "b": { "min": 5, "max": 20 }
+        "a": {
+          "min": 50,
+          "max": 200
+        },
+        "b": {
+          "min": 5,
+          "max": 20
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -297,8 +440,14 @@
       "type": "word_problem",
       "template": "У тебя было {a} монет, ты потратил {b}. Сколько осталось?",
       "variables": {
-        "a": { "min": 200, "max": 1000 },
-        "b": { "min": 50, "max": 500 }
+        "a": {
+          "min": 200,
+          "max": 1000
+        },
+        "b": {
+          "min": 50,
+          "max": 500
+        }
       },
       "formula": "a - b",
       "round": 2
@@ -309,8 +458,14 @@
       "type": "word_problem",
       "template": "Купили {b} товаров по {a} монет. Общая сумма?",
       "variables": {
-        "a": { "min": 20, "max": 200 },
-        "b": { "min": 5, "max": 20 }
+        "a": {
+          "min": 20,
+          "max": 200
+        },
+        "b": {
+          "min": 5,
+          "max": 20
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -321,8 +476,14 @@
       "type": "word_problem",
       "template": "Проехали {a} км утром и {b} км вечером. Сколько всего?",
       "variables": {
-        "a": { "min": 100, "max": 500 },
-        "b": { "min": 100, "max": 500 }
+        "a": {
+          "min": 100,
+          "max": 500
+        },
+        "b": {
+          "min": 100,
+          "max": 500
+        }
       },
       "formula": "a + b",
       "round": 2
@@ -333,8 +494,14 @@
       "type": "word_problem",
       "template": "Склад получил {a} товаров и отправил {b}. Остаток?",
       "variables": {
-        "a": { "min": 300, "max": 1000 },
-        "b": { "min": 100, "max": 500 }
+        "a": {
+          "min": 300,
+          "max": 1000
+        },
+        "b": {
+          "min": 100,
+          "max": 500
+        }
       },
       "formula": "a - b",
       "round": 2
@@ -345,8 +512,14 @@
       "type": "word_problem",
       "template": "Ты купил {b} книг по {a} монет. Сколько заплатил?",
       "variables": {
-        "a": { "min": 10, "max": 100 },
-        "b": { "min": 5, "max": 20 }
+        "a": {
+          "min": 10,
+          "max": 100
+        },
+        "b": {
+          "min": 5,
+          "max": 20
+        }
       },
       "formula": "a * b",
       "round": 2
@@ -357,8 +530,14 @@
       "type": "word_problem",
       "template": "Прочитал {a} страниц в первый день и {b} во второй. Всего?",
       "variables": {
-        "a": { "min": 100, "max": 500 },
-        "b": { "min": 100, "max": 500 }
+        "a": {
+          "min": 100,
+          "max": 500
+        },
+        "b": {
+          "min": 100,
+          "max": 500
+        }
       },
       "formula": "a + b",
       "round": 2
@@ -369,12 +548,17 @@
       "type": "word_problem",
       "template": "Было {a} единиц товара, продали {b}. Сколько осталось?",
       "variables": {
-        "a": { "min": 300, "max": 1000 },
-        "b": { "min": 100, "max": 500 }
+        "a": {
+          "min": 300,
+          "max": 1000
+        },
+        "b": {
+          "min": 100,
+          "max": 500
+        }
       },
       "formula": "a - b",
       "round": 2
     }
-
   ]
 }

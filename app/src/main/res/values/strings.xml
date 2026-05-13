@@ -1,3 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MatKach</string>
+
+    <!-- MainMenu -->
+    <string name="title_app">МатКач</string>
+    <string name="label_choose_difficulty">Выберите сложность</string>
+    <string name="label_choose_types">Выберите типы задач</string>
+    <string name="level_easy">Обычный</string>
+    <string name="level_hard">Сложный</string>
+    <string name="type_addition">Сложение</string>
+    <string name="type_subtraction">Вычитание</string>
+    <string name="type_multiplication">Умножение</string>
+    <string name="type_division">Деление</string>
+    <string name="type_word">Текстовые задачи</string>
+    <string name="btn_start">Поехали!</string>
+    <string name="btn_about">Об авторах</string>
+    <string name="btn_rules">Правила</string>
+    <string name="error_no_types">Выберите хотя бы один тип задач</string>
+
+    <!-- Game -->
+    <string name="btn_check">Проверить</string>
+    <string name="btn_next">Дальше</string>
+    <string name="btn_back">Назад</string>
+    <string name="hint_answer">Введите ответ</string>
+    <string name="error_enter_number">Введите число</string>
+    <string name="error_no_task_types">Ошибка: не выбраны типы задач</string>
+
+    <!-- Game status -->
+    <string name="status_mistakes">Ошибок: %1$d из %2$d</string>
+    <string name="status_progress">Решено: %1$d из %2$d</string>
+    <string name="result_correct">✅ Верно!</string>
+    <string name="result_wrong">❌ Неверно. Ответ: %1$s</string>
+    <string name="game_over">Игра окончена.\nМного ошибок!</string>
+    <string name="level_complete">🎉 Уровень пройден!\n%1$d / %2$d</string>
+    <string name="no_tasks_for_params">Нет задач для выбранных параметров</string>
+    <string name="task_error">Ошибка задачи</string>
+
+    <!-- Font size -->
+    <string name="btn_font_size">Аа</string>
+    <string name="font_size_normal">Обычный</string>
+    <string name="font_size_large">Крупный</string>
+    <string name="font_size_xlarge">Очень крупный</string>
+
+    <!-- About / Rules -->
+    <string name="title_about">Об авторах</string>
+    <string name="title_rules">Правила игры</string>
+    <string name="about_text">👨‍💻 Мы — студенты ОГУ, Института математики и информационных технологий, группа 24ПМИ(б)ППКС.\n\nКоняев и Понаморёв\n\n🚀 Разработчики на Android Studio, постоянно развивающиеся в профессии.\n\n🎯 В 20 лет достигли уровня Middle и уверенно движемся к Senior.\n\n💼 Открыты к интересным предложениям.\n\n📞 По вопросам:\n8 (800) 555-35-35</string>
+    <string name="rules_text">1️⃣ Выберите уровень сложности и типы задач на главном экране.\n\n2️⃣ Вам будет предложено решить 20 задач.\n\n3️⃣ У вас есть 3 попытки. За каждый неверный ответ отнимается одна.\n\n4️⃣ Введите ответ в поле и нажмите «Проверить».\n\n5️⃣ При верном ответе нажмите «Дальше» для перехода к следующей задаче.\n\n6️⃣ Если попытки закончатся или вы решите все 20 задач — раунд завершится.</string>
 </resources>

@@ -2,9 +2,23 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bg_color">#F0F2F5</color> <!-- Светлый фон для неоморфизма -->
-    <color name="shadow_light">#FFFFFF</color> <!-- Белый блик -->
-    <color name="shadow_dark">#D9DDE6</color> <!-- Тень -->
-    <color name="primary_purple">#6A5ACD</color> <!-- Твой фиолетовый цвет -->
-    <color name="input_bg">#E4E6E9</color> <!-- Цвет фона для поля ввода (вдавленный) -->
+
+    <!-- Основные цвета приложения -->
+    <color name="bg_color">#F0F2F5</color>
+    <color name="shadow_light">#FFFFFF</color>
+    <color name="shadow_dark">#D9DDE6</color>
+    <color name="primary_purple">#6A5ACD</color>
+    <color name="primary_purple_dark">#5548A8</color>
+    <color name="input_bg">#E4E6E9</color>
+
+    <!-- Цвета для статусов -->
+    <color name="color_correct">#2E7D32</color>
+    <color name="color_wrong">#C62828</color>
+    <color name="color_text_primary">#1A1A2E</color>
+    <color name="color_text_secondary">#555577</color>
+    <color name="color_text_hint">#9090AA</color>
+
+    <!-- Кнопка размера шрифта -->
+    <color name="font_btn_bg">#E8E6F8</color>
+    <color name="font_btn_text">#6A5ACD</color>
 </resources>

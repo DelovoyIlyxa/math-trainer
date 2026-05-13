@@ -1,6 +1,5 @@
 package com.example.matkach
 
-
 data class Task(
     val id: String,
     val level: String,
@@ -8,7 +7,10 @@ data class Task(
     val template: String,
     val variables: Map<String, VariableRange>,
     val formula: String,
-    val round: Int
+    val round: Int,
+    /** Если true — генератор гарантирует целочисленное деление (a = result * b).
+     *  Управляется через tasks.json, не через хардкод в генераторе. */
+    val needsWholeDivision: Boolean = false
 )
 
 data class VariableRange(
@@ -21,9 +23,8 @@ enum class DifficultyLevel(val value: String) {
     HARD("hard");
 
     companion object {
-        fun fromString(value: String): DifficultyLevel {
-            return entries.find { it.value == value }
-                ?: throw IllegalArgumentException("Unknown level: $value")
-        }
+        fun fromString(value: String): DifficultyLevel =
+            entries.find { it.value == value }
+                ?: throw IllegalArgumentException("Unknown difficulty level: $value")
     }
 }

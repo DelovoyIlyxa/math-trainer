@@ -1,144 +1,94 @@
 package com.example.matkach
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.activity.viewModels
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    private fun updateLives(livesText: TextView, lives: Int) {
-        livesText.text = "Ошибок: ${3 - lives} из 3"
-    }
+    private val viewModel: GameViewModel by viewModels()
 
-    private fun updateProgress(progressText: TextView, solved: Int, max: Int) {
-        progressText.text = "Решено: $solved из $max"
-    }
-
-    private fun format(value: Double): String {
-        return if (value % 1.0 == 0.0) value.toInt().toString()
-        else String.format("%.2f", value)
-    }
-
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
         setContentView(R.layout.activity_main)
+        applySystemBarPadding(findViewById(R.id.main))
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val sys = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(sys.left, sys.top, sys.right, sys.bottom)
-            insets
-        }
+        val contentRoot  = findViewById<android.view.View>(R.id.contentRoot)
+        //val btnFontSize  = findViewById<Button>(R.id.btnFontSize)
+        val taskText     = findViewById<TextView>(R.id.taskText)
+        val livesText    = findViewById<TextView>(R.id.livesText)
+        val progressText = findViewById<TextView>(R.id.coinsText)
+        val input        = findViewById<EditText>(R.id.answerInput)
+        val checkButton  = findViewById<Button>(R.id.checkButton)
+        val backButton   = findViewById<Button>(R.id.backButton)
 
-        // UI
-        val button = findViewById<Button>(R.id.checkButton)
-        val input = findViewById<EditText>(R.id.answerInput)
-        val backButton = findViewById<Button>(R.id.backButton)
-        val taskText = findViewById<TextView>(R.id.taskText)
-        val livesText = findViewById<TextView>(R.id.livesText)
-        val coinsText = findViewById<TextView>(R.id.coinsText)
-
-        // Game settings
-        val maxTasks = 20
+        //setupFontButton(btnFontSize, contentRoot)
 
         val difficulty = intent.getStringExtra("difficulty") ?: "easy"
         val types = intent.getStringArrayListExtra("types") ?: arrayListOf()
 
-        // защита от пустых типов
         if (types.isEmpty()) {
-            taskText.text = "Ошибка: не выбраны типы задач"
-            button.isEnabled = false
+            taskText.text = getString(R.string.error_no_task_types)
+            checkButton.isEnabled = false
             return
         }
 
-        val repository = TaskRepository(this)
-        val tasks = repository.loadTasks()
-        val generator = TaskGenerator(tasks)
+        viewModel.init(difficulty, types)
 
-        val level = DifficultyLevel.fromString(difficulty)
-
-        // Game state
-        var currentTask = generator.generate(level, types)
-
-        var lives = 3
-        var solved = 0
-        var correct = 0
-
-        var isAnswered = false
-
-        // init UI
-        taskText.text = currentTask.text
-        updateLives(livesText, lives)
-        updateProgress(coinsText, solved, maxTasks)
-
-        backButton.setOnClickListener {
-            finish()
-        }
-
-        button.setOnClickListener {
-
-            if (!isAnswered) {
-
-                val userAnswer = input.text.toString()
-                    .replace(",", ".")
-                    .toDoubleOrNull()
-
-                if (userAnswer == null) {
-                    Toast.makeText(this, "Введите число", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
+        viewModel.uiState.observe(this) { state ->
+            when (state) {
+                is GameUiState.Question -> {
+                    taskText.text = state.taskText
+                    livesText.text = getString(R.string.status_mistakes, state.mistakesCount, GameConfig.MAX_LIVES)
+                    progressText.text = getString(R.string.status_progress, state.solvedCount, GameConfig.MAX_TASKS)
+                    input.isEnabled = true
+                    input.text.clear()
+                    checkButton.isEnabled = true
+                    checkButton.text = getString(R.string.btn_check)
                 }
-
-                solved++
-
-                val isCorrect = kotlin.math.abs(userAnswer - currentTask.answer) < 0.01
-
-                if (isCorrect) {
-                    correct++
-                    taskText.text = "✅ Верно!"
-                } else {
-                    lives--
-                    updateLives(livesText, lives)
-                    taskText.text = "❌ Неверно. Ответ: ${format(currentTask.answer)}"
+                is GameUiState.AnswerResult -> {
+                    taskText.text = if (state.isCorrect)
+                        getString(R.string.result_correct)
+                    else
+                        getString(R.string.result_wrong, state.correctAnswer)
+                    livesText.text = getString(R.string.status_mistakes, state.mistakesCount, GameConfig.MAX_LIVES)
+                    progressText.text = getString(R.string.status_progress, state.solvedCount, GameConfig.MAX_TASKS)
+                    input.isEnabled = false
+                    checkButton.text = getString(R.string.btn_next)
                 }
-
-                updateProgress(coinsText, solved, maxTasks)
-
-                if (lives <= 0) {
-                    taskText.text = taskText.text.toString() + "\nИгра окончена.\nМного ошибок!"
-                    button.isEnabled = false
-                    return@setOnClickListener
+                is GameUiState.GameOver -> {
+                    taskText.text = getString(R.string.game_over)
+                    progressText.text = getString(R.string.status_progress, state.solvedCount, GameConfig.MAX_TASKS)
+                    input.isEnabled = false
+                    checkButton.isEnabled = false
                 }
-
-                if (solved >= maxTasks) {
-                    taskText.text = taskText.text.toString() + "\n🎉 Уровень пройден!\n$correct / $solved"
-                    button.isEnabled = false
-                    return@setOnClickListener
+                is GameUiState.LevelComplete -> {
+                    taskText.text = getString(R.string.level_complete, state.correctCount, state.solvedCount)
+                    progressText.text = getString(R.string.status_progress, state.solvedCount, GameConfig.MAX_TASKS)
+                    input.isEnabled = false
+                    checkButton.isEnabled = false
                 }
-
-                input.isEnabled = false
-                button.text = "Дальше"
-                isAnswered = true
-
-            } else {
-
-                currentTask = generator.generate(level, types)
-
-                taskText.text = currentTask.text
-                input.text.clear()
-                input.isEnabled = true
-
-                button.text = "Проверить"
-                isAnswered = false
             }
         }
+
+        checkButton.setOnClickListener {
+            when (viewModel.uiState.value) {
+                is GameUiState.Question -> {
+                    val userInput = input.text.toString()
+                    if (viewModel.isInvalidInput(userInput)) {
+                        Toast.makeText(this, getString(R.string.error_enter_number), Toast.LENGTH_SHORT).show()
+                        return@setOnClickListener
+                    }
+                    viewModel.checkAnswer(userInput)
+                }
+                is GameUiState.AnswerResult -> viewModel.nextQuestion()
+                else -> {}
+            }
+        }
+
+        backButton.setOnClickListener { finish() }
     }
 }
